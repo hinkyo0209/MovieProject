@@ -1,0 +1,29 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mbc.admin.actor.ActorService">
+	<insert id="actorinsert">
+		insert into actor values(#{param1}
+								,actor_seq.nextval
+								,#{param2}
+								,#{param3}
+								,#{param4}
+								,#{param5}
+								,#{param6})
+	</insert>
+	<select id="actorout" resultType="com.mbc.admin.actor.ActorDTO">
+		select * from actor
+	</select>
+	<select id="update" resultType="com.mbc.admin.actor.ActorDTO">
+		select * from actor where actornum = #{param2}
+	</select>
+	<update id="update2">
+		update actor set movienum=#{param1}
+						,actor=#{param3}
+						,actorimage=#{param4}
+						,actortv1=#{param5}
+						,actortv2=#{param6}
+						,actortv3=#{param7}
+						 where actornum=#{param2}
+	</update>
+</mapper>

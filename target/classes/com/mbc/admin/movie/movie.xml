@@ -1,0 +1,169 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mbc.admin.movie.MovieService">
+<insert id="insertmovie">
+	insert into movie values(movienum_seq.nextval
+							,#{param1},#{param2}
+							,#{param3},#{param4}
+							,#{param5},#{param6}
+							,#{param7},#{param8}
+							,#{param9},#{param10}
+							,#{param11},#{param12},#{param13})     
+</insert>
+
+<select id="outmovie" resultType="com.mbc.admin.movie.MovieDTO">
+	select movienum,movietitle
+     	   ,moviegenre,country
+     	   ,runningtime,movieopen
+     	   ,to_char(moviedate,'yyyy-MM-dd')moviedate
+     	   ,moviecontent,moviedirector
+     	   ,casting,moviegrade
+     	   ,gradeimage,moviecover
+     	   ,trailer from movie order by movienum asc <!-- 영화번호 순으로 오름차순 -->
+</select>
+<select id="detailmovie" resultType="com.mbc.admin.movie.MovieDTO">
+	select movienum,movietitle
+     	   ,moviegenre,country
+     	   ,runningtime,movieopen
+     	   ,to_char(moviedate,'yyyy-MM-dd')moviedate
+     	   ,moviecontent,moviedirector
+     	   ,casting,moviegrade
+     	   ,gradeimage,moviecover
+     	   ,trailer from movie where movienum =#{param1}
+</select>
+<!-- 
+<resultMap type="com.mbc.admin.actor.ActorDTO" id="actor">
+	<result property="movienum" column="movienum"></result>
+	<result property="actornum" column="actornum"></result>
+	<result property="actor" column="actor"></result>
+	<result property="actorimage" column="actorimage"></result>
+	<result property="actortv1" column="actortv1"></result>
+	<result property="actortv2" column="actortv2"></result>
+	<result property="actortv3" column="actortv3"></result>
+	
+</resultMap>
+<resultMap type="com.mbc.admin.movie.MovieDTO" id="movie">
+	<result property="movienum" column="movienum"></result>
+	<result property="movietitle" column="movietitle"></result>
+	<result property="moviegenre" column="moviegenre"></result>
+	<result property="country" column="country"></result>
+	<result property="runningtime" column="runningtime"></result>
+	<result property="movieopen" column="movieopen"></result>
+	<result property="moviedate" column="moviedate"></result>
+	<result property="moviecontent" column="moviecontent"></result>
+	<result property="moviedirector" column="moviedirector"></result>
+	<result property="casting" column="casting"></result>
+	<result property="moviegrade" column="moviegrade"></result>
+	<result property="gradeimage" column="gradeimage"></result>
+	<result property="moviecover" column="moviecover"></result>
+	<result property="trailer" column="trailer"></result>
+	<collection property="actorDTO" ofType="com.mbc.admin.actor.ActorDTO" resultMap="actor"></collection>
+</resultMap>
+ -->
+<select id="detailcasting" resultType="com.mbc.admin.actor.ActorDTO">
+	select ac.movienum,ac.actorimage,ac.actor,ac.actortv1,ac.actortv2,ac.actortv3
+		  from actor ac
+		 where ac.movienum=#{param1}
+		 
+		 <!-- 이게맞음 -->
+		   <!-- where ac.movienum=#{param1}-->
+		 <!--  where mov.movienum=ac.movienum-->
+	
+</select>
+
+<select id="deletemovie" resultType="com.mbc.admin.movie.MovieDTO">
+     select movienum,movietitle
+     	   ,moviegenre,country
+     	   ,runningtime,movieopen
+     	   ,to_char(moviedate,'yyyy-MM-dd')moviedate
+     	   ,moviecontent,moviedirector
+     	   ,casting,moviegrade
+     	   ,gradeimage,moviecover
+     	   ,trailer from movie
+     	    where movienum =#{param1}
+</select>
+<delete id="deletemovie2">
+	delete from movie where movienum =#{param1}
+</delete>
+<select id="updatemovie" resultType="com.mbc.admin.movie.MovieDTO">
+	select movienum,movietitle
+		  ,moviegenre,country
+		  ,runningtime,movieopen
+		  ,to_char(moviedate,'yyyy-MM-dd')moviedate
+		  ,moviecontent,moviedirector
+		  ,casting,moviegrade
+		  ,gradeimage,moviecover
+		  ,trailer from movie
+		   where movienum =#{param1}
+</select>
+<update id="updatemovie2">
+	update movie set movietitle=#{param2}
+					,moviegenre=#{param3}
+					,country=#{param4}
+					,runningtime=#{param5}
+					,movieopen=#{param6}
+					,moviedate=#{param7}
+					,moviecontent=#{param8}
+					,moviedirector=#{param9}
+					,casting=#{param10}
+					,moviegrade=#{param11}
+					,gradeimage=#{param12}
+					,moviecover=#{param13}
+					,trailer=#{param14}
+					 where movienum=#{param1}
+</update>
+<select id="searchviewmovie" resultType="com.mbc.admin.movie.MovieDTO">
+   select movienum,movietitle
+           ,moviegenre,country
+           ,runningtime,movieopen
+           ,to_char(moviedate,'yyyy-MM-dd')moviedate
+           ,moviecontent,moviedirector
+           ,casting,moviegrade
+           ,gradeimage,moviecover
+           ,trailer from movie where movienum =#{param1}
+</select>
+<select id="movietitlesearch" resultType="com.mbc.admin.movie.MovieDTO">
+	select movienum,movietitle
+		  ,moviegenre,country
+		  ,runningtime,movieopen
+		  ,to_char(moviedate,'yyyy-MM-dd')moviedate
+		  ,moviecontent,moviedirector
+		  ,casting,moviegrade
+		  ,gradeimage,moviecover
+		  ,trailer from movie
+		   where movietitle like '%' || #{param1} || '%'
+</select>
+<select id="moviegenresearch" resultType="com.mbc.admin.movie.MovieDTO">
+	select movienum,movietitle
+		  ,moviegenre,country
+		  ,runningtime,movieopen
+		  ,to_char(moviedate,'yyyy-MM-dd')moviedate
+		  ,moviecontent,moviedirector
+		  ,casting,moviegrade
+		  ,gradeimage,moviecover
+		  ,trailer from movie
+		   where moviegenre like '%' || #{param1} || '%'
+</select>
+     
+<select id="homeout" resultType="com.mbc.admin.movie.MovieDTO">
+	select * from movie
+</select>
+
+<select id="usermovielist" resultType="com.mbc.admin.movie.MovieDTO">
+	select * from movie where movieopen = #{param1}
+</select>
+<select id="usermovielistnoopen" resultType="com.mbc.admin.movie.MovieDTO">
+	select * from movie where movieopen = #{param1}
+</select>
+<select id="usermovielistreopen" resultType="com.mbc.admin.movie.MovieDTO">
+	select * from movie where movieopen = #{param1}
+</select>
+<select id="openmovieall" resultType="com.mbc.admin.movie.MovieDTO">
+	select * from movie where movieopen = #{param1}
+</select>
+<select id="replyout" resultType="com.mbc.admin.reply.ReplyDTO">
+	select * from reply where movienum = #{param1} order by replydate DESC
+</select>
+</mapper>

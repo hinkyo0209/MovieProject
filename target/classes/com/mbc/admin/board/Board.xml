@@ -1,0 +1,54 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mbc.admin.board.BoardService">
+   <insert id="insert">
+      insert into board(boardnum
+                  , boardwriter
+                  , boardtitle
+                  , boardcontent
+                  , boardcnt)
+      values(board_seq.nextval,#{param1},#{param2},#{param3},0)
+   </insert>
+   <select id="boardout" resultType="com.mbc.admin.board.BoardDTO">
+      select boardnum
+            , boardtitle
+            , boardwriter
+            , boardcnt
+            , boarddate
+             from board order by boardnum desc
+   </select>
+   <select id="detail" resultType="com.mbc.admin.board.BoardDTO">
+      select boardtitle
+            , boardwriter
+            , boardcontent
+            , boardcnt
+            , boarddate
+             from board 
+             where boardnum = #{param1}
+   </select>
+   <update id="readup">
+      update board set boardcnt = boardcnt+1
+             where boardnum = #{param}
+   </update>
+   <select id="total" resultType="int">
+         select count(*)from BOARD
+   </select>
+   <select id="page" resultType="com.mbc.admin.board.BoardDTO">
+         select * from (
+         select rownum rn,A.* from(  
+         select boardnum
+            , boardtitle
+            , boardwriter
+            , boardcnt
+            , boarddate
+             from BOARD order by boardnum ASC)A)
+         where rn between #{start} AND #{end}
+   </select>
+   
+   <insert id="commentinsert">
+      insert into comments(commentnum, boardnum, commentcontent) values(comment_seq.nextval, #{param1}, #{param2})
+   </insert>
+   
+</mapper>
+
