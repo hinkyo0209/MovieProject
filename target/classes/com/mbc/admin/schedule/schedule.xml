@@ -1,0 +1,48 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mbc.admin.schedule.ScheduleService">
+	<insert id="scheduleinsert">
+		insert into schedule values(
+		 #{param1}
+		,#{param2}
+		,#{param3}
+		,#{param4}
+		,#{param5})
+	</insert>
+	<select id="outschedule" resultType="com.mbc.admin.schedule.ScheduleDTO">
+		select movienum
+			  ,schedule_num
+			  ,to_char(screening_date,'yyyy-MM-dd')screening_date
+			  ,screening_time
+			  ,screening_theater
+		from schedule
+	</select>
+	<select id="updateschedule" resultType="com.mbc.admin.schedule.ScheduleDTO">
+		select movienum
+			  ,schedule_num
+			  ,screening_date
+			  ,screening_time
+			  ,screening_theater
+		from schedule where schedule_num =#{param2}
+	</select>
+	<update id="updateschedule2">
+		update schedule set
+			  movienum=#{param1}
+			  ,screening_date=#{param3}
+			  ,screening_time=#{param4}
+			  ,screening_theater=#{param5}
+			  where schedule_num=#{param2}
+	</update>
+	<select id="deleteschedule" resultType="com.mbc.admin.schedule.ScheduleDTO">
+		select movienum
+			  ,schedule_num
+			  ,to_char(screening_date,'yyyy-MM-dd')screening_date
+			  ,screening_time
+			  ,screening_theater
+			  from schedule where schedule_num =#{param2}
+	</select>
+	<delete id="deleteschedule2">
+		delete from schedule where schedule_num=#{param2}
+	</delete>
+</mapper>

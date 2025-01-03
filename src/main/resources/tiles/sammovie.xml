@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+   <definition name="adminbaseLayout" template="/WEB-INF/views/adminmain/adminlayout.jsp">
+      <put-attribute name="title" value=""/>
+      <put-attribute name="admintop" value="/WEB-INF/views/adminmain/admintop.jsp"/>
+      <put-attribute name="body" value=""/>
+      <put-attribute name="adminfooter" value="/WEB-INF/views/adminmain/adminfooter.jsp"/>
+   </definition>
+   <definition name="adminmain" extends="adminbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/adminmain/adminmain.jsp"/>
+   </definition>  
+    <definition name="movieinput" extends="adminbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/movie/movieinput.jsp"/>
+   </definition> 
+   <definition name="movieout" extends="adminbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/movie/movieout.jsp"/>
+   </definition>
+   <definition name="deleteview_movie" extends="adminbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/movie/deleteview_movie.jsp"/>
+   </definition> 
+   <definition name="updateview_movie" extends="adminbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/movie/updateview_movie.jsp"/>
+   </definition>
+   <definition name="actorinput" extends="adminbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/actor/actorinput.jsp"/>
+   </definition> 
+   <definition name="actorout" extends="adminbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/actor/actorout.jsp"/>
+   </definition> 
+   <definition name="actorupdateview" extends="adminbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/actor/actorupdateview.jsp"/>
+   </definition>
+   <definition name="scheduleinput" extends="adminbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/schedule/scheduleinput.jsp"/>
+   </definition>
+    <definition name="scheduleout" extends="adminbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/schedule/scheduleout.jsp"/>
+   </definition>
+    <definition name="updateview_schedule" extends="adminbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/schedule/updateview_schedule.jsp"/>
+   </definition>
+    <definition name="deleteview_schedule" extends="adminbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/schedule/deleteview_schedule.jsp"/>
+   </definition>
+       <definition name="ticketout" extends="adminbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/ticket/ticketout.jsp"/>
+   </definition>
+   
+   
+   <!-- 유저 화면 -->
+   <definition name="userbaseLayout" template="/WEB-INF/views/usermain/userlayout.jsp">
+      <put-attribute name="title" value=""/>
+      <put-attribute name="usertop" value="/WEB-INF/views/usermain/usertop.jsp"/>
+      <put-attribute name="body" value=""/>
+      <put-attribute name="userfooter" value="/WEB-INF/views/usermain/userfooter.jsp"/>
+   </definition>
+   <definition name="usermain" extends="userbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/usermain/usermain.jsp"/>
+   </definition> 
+   <definition name="moviedetail" extends="userbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/movie/moviedetail.jsp"/>
+   </definition> 
+   <definition name="castingdetail" extends="userbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/movie/castingdetail.jsp"/>
+   </definition> 
+   <definition name="searchview_movie" extends="userbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/movie/searchview_movie.jsp"/>
+   </definition>
+   <definition name="boardview" extends="userbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/board/boardview.jsp"/>
+   </definition>
+   <definition name="boardinput" extends="userbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/board/boardinput.jsp"/>
+   </definition>
+   <definition name="boarddetail" extends="userbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/board/boarddetail.jsp"/>
+   </definition>
+   <definition name="step1" extends="userbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/ticket/step1.jsp"/>
+   </definition>
+    <definition name="step2" extends="userbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/ticket/step2.jsp"/>
+   </definition>
+    <definition name="step3" extends="userbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/ticket/step3.jsp"/>
+   </definition>
+    <definition name="myticketcheck" extends="userbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/ticket/myticketcheck.jsp"/>
+   </definition>
+   <definition name="usermovie" extends="userbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/movie/usermovie.jsp"/>
+   </definition>
+   <definition name="openmovieall" extends="userbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/movie/openmovieall.jsp"/>
+   </definition>
+   <definition name="login" extends="userbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/Login/login.jsp"/>
+   </definition>
+   <definition name="memberinput" extends="userbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/Member/memberinput.jsp"/>
+   </definition>
+   <definition name="memberout" extends="userbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/Member/memberout.jsp"/>
+   </definition>
+   <definition name="mypageinput" extends="userbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/Mypage/mypageinput.jsp"/>
+   </definition>
+   <definition name="myupdate1" extends="userbaseLayout">
+      <put-attribute name="title" value="메인화면"/>
+      <put-attribute name="body" value="/WEB-INF/views/Mypage/myupdate1.jsp"/>
+   </definition>
+</tiles-definitions>
