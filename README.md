@@ -32,10 +32,5 @@
 ![image](https://github.com/user-attachments/assets/7df64c05-5a08-47b2-9ada-f0a7f52d3490)
 ![image](https://github.com/user-attachments/assets/0740ec99-350f-420e-b82b-0b0bd2d7a1ce)
 ![image](https://github.com/user-attachments/assets/c3ff2c91-e7ae-459f-a47e-134a43d1dfb3)
-![image](https://github.com/user-attachments/assets/0a8c2698-e78c-4c98-b917-96f516866f11)
-![image](https://github.com/user-attachments/assets/0a8c2698-e78c-4c98-b917-96f516866f11)
-
-
-
 
 
